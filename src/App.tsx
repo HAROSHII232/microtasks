@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { FilterType, NewComponent } from "./components/NewComponent";
+/* import { FilterType, NewComponent } from "./components/NewComponent"; */
+import { FullInput } from "./components/FullInput";
 
 function App() {
-  const [money] = useState([
+  /*   const [money] = useState([
     { id: 1, banknots: "Dollars", value: 100, number: " a1234567890" },
     { id: 2, banknots: "Dollars", value: 50, number: " z1234567890" },
     { id: 3, banknots: "RUBLS", value: 100, number: " w1234567890" },
@@ -24,15 +25,36 @@ function App() {
 
   const onClickFilterHandler = (nameBtn: FilterType) => {
     setFilter(nameBtn);
+  }; */
+  /*   return (
+    <>
+            <NewComponent
+        currentMoney={currentMoney}
+        callback={onClickFilterHandler}
+      /> 
+    </>
+  ); */
+
+  //INPUT PRACTICE
+  const [message, setMessage] = useState([
+    { message: "message1" },
+    { message: "message2" },
+    { message: "message3" },
+    { message: "message4" },
+    { message: "message5" },
+  ]);
+
+  const addNewMessage = (title: string) => {
+    setMessage([{ message: title }, ...message]);
   };
 
   return (
-    <>
-      <NewComponent
-        currentMoney={currentMoney}
-        callback={onClickFilterHandler}
-      />
-    </>
+    <div className="App">
+      <FullInput addNewMessage={addNewMessage} />
+      {message.map((el, index) => {
+        return <div key={index}>{el.message}</div>;
+      })}
+    </div>
   );
 }
 
