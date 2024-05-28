@@ -4,7 +4,7 @@ type ButtonPropsType = {
 };
 
 export const Button = ({name, callBack}: ButtonPropsType) => {
-  const onClickHandler = () => callBack();
+  const onClickButtonHandler = () => callBack();
 
-  return <button onClick={onClickHandler}>{name}</button>;
+  return <button onClick={onClickButtonHandler}>{name}</button>;
 };

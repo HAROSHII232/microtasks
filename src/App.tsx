@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 /* import { FilterType, NewComponent } from "./components/NewComponent"; */
-import { FullInput } from "./components/FullInput";
+/* import { FullInput } from "./components/FullInput"; */
+import { Input } from "./components/Input";
+import { Button } from "./components/Button";
 
 function App() {
   /*   const [money] = useState([
@@ -44,13 +46,24 @@ function App() {
     { message: "message5" },
   ]);
 
+  let [title, setTitle] = useState("");
+
   const addNewMessage = (title: string) => {
     setMessage([{ message: title }, ...message]);
   };
 
+  const callbackButtonHandler = () => {
+    addNewMessage(title);
+    setTitle("");
+  };
+
   return (
     <div className="App">
-      <FullInput addNewMessage={addNewMessage} />
+      {/* <FullInput addNewMessage={addNewMessage} /> */}
+
+      <Input value={title} title={title} setTitle={setTitle} />
+      <Button name="+" callBack={callbackButtonHandler} />
+
       {message.map((el, index) => {
         return <div key={index}>{el.message}</div>;
       })}
